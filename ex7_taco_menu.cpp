@@ -26,32 +26,51 @@ void display_error();
 void display_taco_ready();
 
 //------------------------------------------------------------------------------
+// taco fillings available
+//------------------------------------------------------------------------------
+enum Fillings {
+    F_FISH = 'F',
+    F_SALSA = 'S',
+    F_PICO = 'P',
+    F_LETTUCE = 'L',
+    F_AVOCADO = 'A',
+    F_QUIT = 'Q',
+};
+
+//------------------------------------------------------------------------------
 // entry point
 //------------------------------------------------------------------------------
 int main() {
 
     setup();
 
+    int filling_count = 0;
+
     char option;
     while (true) {
         option = get_menu_option();
 
-        if (option == 'F')
+        if (option == F_FISH)
             display_fish_filling();
-        else if (option == 'S')
+
+        else if (option == F_SALSA)
             display_salsa_filling();
-        else if (option == 'P')
+
+        else if (option == F_PICO)
             display_pico_filling();
-        else if (option == 'L')
+
+        else if (option == F_LETTUCE)
             display_lettuce_filling();
-        else if (option == 'A')
+
+        else if (option == F_AVOCADO)
             display_avocado_filling();
-        else if (option == 'Q')
+
+        else if (option == F_QUIT)
             break;
+
         else
             display_error();
-
-    } while (option != 'Q');
+    }
 
     display_taco_ready();
 
