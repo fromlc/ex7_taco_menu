@@ -44,32 +44,33 @@ int main() {
 
     setup();
 
-    int filling_count = 0;
-
-    char option;
     while (true) {
-        option = get_menu_option();
-
-        if (option == F_FISH)
+        switch (get_menu_option()) {
+        case F_FISH:
             display_fish_filling();
-
-        else if (option == F_SALSA)
-            display_salsa_filling();
-
-        else if (option == F_PICO)
-            display_pico_filling();
-
-        else if (option == F_LETTUCE)
-            display_lettuce_filling();
-
-        else if (option == F_AVOCADO)
-            display_avocado_filling();
-
-        else if (option == F_QUIT)
             break;
 
-        else
+        case F_SALSA:
+            display_salsa_filling();
+            break;
+
+        case F_PICO:
+            display_pico_filling();
+            break;
+
+        case F_LETTUCE:
+            display_lettuce_filling();
+            break;
+
+        case F_AVOCADO:
+            display_avocado_filling();
+
+        case F_QUIT:
+            break;
+
+        default:
             display_error();
+        }
     }
 
     display_taco_ready();
