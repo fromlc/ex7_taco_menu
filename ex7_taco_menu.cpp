@@ -100,7 +100,6 @@ void display_salsa_filling() {
 void display_pico_filling() {
 
     cout << "Adding diced tomato, onion, and chopped cilantro\n";
-
 }
 
 //------------------------------------------------------------------------------
@@ -109,7 +108,6 @@ void display_pico_filling() {
 void display_lettuce_filling() {
 
     cout << "Adding crisp, shredded iceberg lettuce\n";
-
 }
 
 //------------------------------------------------------------------------------
@@ -118,7 +116,6 @@ void display_lettuce_filling() {
 void display_avocado_filling() {
 
     cout << "Adding creamy avocado slices\n";
-
 }
 
 //------------------------------------------------------------------------------
@@ -127,7 +124,6 @@ void display_avocado_filling() {
 void display_error() {
 
     cerr << "Sorry, that filling is not available.\n";
-
 }
 
 
@@ -137,5 +133,4 @@ void display_error() {
 void display_taco_ready() {
 
     cout << "Sounds delicious! Enjoy your taco.\n";
-
 }
