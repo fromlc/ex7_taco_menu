@@ -17,13 +17,14 @@ const string MENU_STR = "F)ish, S)alsa, P)ico de gallo, L)ettuce, A)vocado Q)uit
 //------------------------------------------------------------------------------
 void setup();
 char get_menu_option();
+bool menu_option_selected();
 void display_fish_filling();
 void display_salsa_filling();
 void display_pico_filling();
 void display_lettuce_filling();
 void display_avocado_filling();
 void display_error();
-void display_taco_ready();
+void display_taco_ready(int);
 
 //------------------------------------------------------------------------------
 // taco fillings available
@@ -44,36 +45,17 @@ int main() {
 
     setup();
 
+    int num_fillings = 0;
+
     while (true) {
-        switch (get_menu_option()) {
-        case F_FISH:
-            display_fish_filling();
+        if (!menu_option_selected())
             break;
 
-        case F_SALSA:
-            display_salsa_filling();
-            break;
-
-        case F_PICO:
-            display_pico_filling();
-            break;
-
-        case F_LETTUCE:
-            display_lettuce_filling();
-            break;
-
-        case F_AVOCADO:
-            display_avocado_filling();
-
-        case F_QUIT:
-            break;
-
-        default:
-            display_error();
-        }
+        num_fillings++;
     }
 
-    display_taco_ready();
+    if (num_fillings > 0)
+        display_taco_ready(num_fillings);
 
     return 0;
 }
@@ -100,6 +82,43 @@ char get_menu_option() {
 }
 
 //------------------------------------------------------------------------------
+// - processes selected menu option
+// - returns true if menu option was valid, false otherwise
+//------------------------------------------------------------------------------
+bool menu_option_selected() {
+
+    switch (get_menu_option()) {
+    case F_FISH:
+        display_fish_filling();
+        return true;
+
+    case F_SALSA:
+        display_salsa_filling();
+        return true;
+
+    case F_PICO:
+        display_pico_filling();
+        return true;
+
+    case F_LETTUCE:
+        display_lettuce_filling();
+        return true;
+
+    case F_AVOCADO:
+        display_avocado_filling();
+        return true;
+
+    case F_QUIT:
+        return false;
+
+    default:
+        display_error();
+    }
+
+    return false;
+}
+
+//------------------------------------------------------------------------------
 // add fish to taco order
 //------------------------------------------------------------------------------
 void display_fish_filling() {
@@ -121,7 +140,6 @@ void display_salsa_filling() {
 void display_pico_filling() {
 
     cout << "Adding diced tomato, onion, and chopped cilantro\n";
-
 }
 
 //------------------------------------------------------------------------------
@@ -130,7 +148,6 @@ void display_pico_filling() {
 void display_lettuce_filling() {
 
     cout << "Adding crisp, shredded iceberg lettuce\n";
-
 }
 
 //------------------------------------------------------------------------------
@@ -139,7 +156,6 @@ void display_lettuce_filling() {
 void display_avocado_filling() {
 
     cout << "Adding creamy avocado slices\n";
-
 }
 
 //------------------------------------------------------------------------------
@@ -148,15 +164,14 @@ void display_avocado_filling() {
 void display_error() {
 
     cerr << "Sorry, that filling is not available.\n";
-
 }
 
 
 //------------------------------------------------------------------------------
 // cleanup tasks
 //------------------------------------------------------------------------------
-void display_taco_ready() {
+void display_taco_ready(int filling_count) {
 
+    cout << "\nYou chose " << filling_count << " fillings.\n";
     cout << "Sounds delicious! Enjoy your taco.\n";
-
 }
