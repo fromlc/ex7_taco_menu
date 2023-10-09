@@ -50,8 +50,7 @@ int main() {
             break;
         else
             display_error();
-
-    } while (option != 'Q');
+    } 
 
     display_taco_ready();
 
