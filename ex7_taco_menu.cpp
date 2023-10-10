@@ -65,6 +65,7 @@ int main() {
 
         case F_AVOCADO:
             display_avocado_filling();
+//#TODO break missing
 
         case F_QUIT:
             break;
