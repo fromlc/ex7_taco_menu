@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cmd_taco.cpp" />
     <ClCompile Include="ex7_taco_menu.cpp" />
+    <ClCompile Include="menu_taco.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cmd_taco.h" />
+    <ClInclude Include="menu_taco.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
