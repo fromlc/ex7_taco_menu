@@ -24,9 +24,7 @@ int main() {
 
     int num_fillings = 0;
 
-    while (true) {
-        if (!menu_option_selected())
-            break;
+    while (menu_option_selected()) {
 
         num_fillings++;
     }
