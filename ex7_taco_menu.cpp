@@ -32,9 +32,8 @@ int main() {
 
     setup();
 
-    char option;
     while (true) {
-        option = get_menu_option();
+        char option = get_menu_option();
 
         if (option == 'F')
             display_fish_filling();
