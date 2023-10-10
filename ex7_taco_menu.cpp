@@ -46,9 +46,8 @@ int main() {
 
     int filling_count = 0;
 
-    char option;
     while (true) {
-        option = get_menu_option();
+        char option = get_menu_option();
 
         if (option == F_FISH)
             display_fish_filling();
