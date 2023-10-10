@@ -47,6 +47,7 @@ int main() {
 
     int num_fillings = 0;
 
+    //#TODO remove if and update while condition
     while (true) {
         if (!menu_option_selected())
             break;
