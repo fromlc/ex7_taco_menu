@@ -3,6 +3,7 @@
 //
 // Practice char input menu structure
 //------------------------------------------------------------------------------
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
@@ -11,7 +12,7 @@ using namespace std;
 // constants
 //------------------------------------------------------------------------------
 const string MENU_STR = "F)ish, S)alsa, P)ico de gallo, L)ettuce, A)vocado Q)uit: ";
-const double TACO_PRICE = 0.75;
+const double PRICE_PER_FILLING = 0.75;
 
 //------------------------------------------------------------------------------
 // local function prototypes
@@ -24,7 +25,7 @@ void display_pico_filling();
 void display_lettuce_filling();
 void display_avocado_filling();
 void display_error();
-void display_taco_ready();
+void display_taco_price(int);
 
 //------------------------------------------------------------------------------
 // globals
@@ -55,9 +56,9 @@ int main() {
             break;
         else
             display_error();
-    } 
+    }
 
-    display_taco_ready();
+    display_taco_price(number_of_fillings);
 
     return 0;
 }
@@ -97,6 +98,7 @@ void display_fish_filling() {
 //------------------------------------------------------------------------------
 void display_salsa_filling() {
 
+    number_of_fillings++;
     cout << "Adding HOT homemade salsa\n";
 }
 
@@ -105,6 +107,7 @@ void display_salsa_filling() {
 //------------------------------------------------------------------------------
 void display_pico_filling() {
 
+    number_of_fillings++;
     cout << "Adding diced tomato, onion, and chopped cilantro\n";
 }
 
@@ -113,6 +116,7 @@ void display_pico_filling() {
 //------------------------------------------------------------------------------
 void display_lettuce_filling() {
 
+    number_of_fillings++;
     cout << "Adding crisp, shredded iceberg lettuce\n";
 }
 
@@ -121,6 +125,7 @@ void display_lettuce_filling() {
 //------------------------------------------------------------------------------
 void display_avocado_filling() {
 
+    number_of_fillings++;
     cout << "Adding creamy avocado slices\n";
 }
 
@@ -129,6 +134,7 @@ void display_avocado_filling() {
 //------------------------------------------------------------------------------
 void display_error() {
 
+    number_of_fillings++;
     cerr << "Sorry, that filling is not available.\n";
 }
 
@@ -139,4 +145,23 @@ void display_error() {
 void display_taco_ready() {
 
     cout << "Sounds delicious! Enjoy your taco.\n";
+}
+
+//------------------------------------------------------------------------------
+// displays taco price based on number of fillings selected
+// #TODO use global instead of parameter, or make global local to main()
+//------------------------------------------------------------------------------
+void display_taco_price(int filling_count) {
+    if (filling_count > 0) {
+
+        double price = filling_count * PRICE_PER_FILLING;
+        cout << "\nThat will be "
+            << setprecision(2) << fixed
+            << '$' << price
+            << " please.\n";
+        cout << "Sounds delicious! Enjoy your taco.\n\n";
+    }
+    else {
+        cout << "Goodbye!\n\n";
+    }
 }
