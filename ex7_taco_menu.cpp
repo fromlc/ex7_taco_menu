@@ -11,6 +11,7 @@ using namespace std;
 // constants
 //------------------------------------------------------------------------------
 const string MENU_STR = "F)ish, S)alsa, P)ico de gallo, L)ettuce, A)vocado Q)uit: ";
+const double TACO_PRICE = 0.75;
 
 //------------------------------------------------------------------------------
 // local function prototypes
@@ -24,6 +25,11 @@ void display_lettuce_filling();
 void display_avocado_filling();
 void display_error();
 void display_taco_ready();
+
+//------------------------------------------------------------------------------
+// globals
+//------------------------------------------------------------------------------
+int number_of_fillings = 0;
 
 //------------------------------------------------------------------------------
 // entry point
@@ -82,6 +88,7 @@ char get_menu_option() {
 //------------------------------------------------------------------------------
 void display_fish_filling() {
 
+    number_of_fillings++;
     cout << "Adding freshly caught mahi-mahi\n";
 }
 
